@@ -1,8 +1,6 @@
-# LUNA
+# LUNA - Learning Universal Neural Assistant
 
-## Learning Universal Neural Assistant
-
-### TODO
+## TODO
 
 - [-]Розпізнавання голосу
 - [-]Тригер на ключове слово

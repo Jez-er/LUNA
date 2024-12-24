@@ -1,2 +1,3 @@
 /.venv
 /vosk-stt-model
+test.py

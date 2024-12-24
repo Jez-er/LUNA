@@ -1,0 +1,39 @@
+{
+	"commands": [
+		{
+			"command": "google_request",
+			"triggers": ["загугли", "найди"],
+			"make": "google_request",
+			"parameters": "",
+			"say": "вот что было найдено по запросу.."
+		},
+		{
+			"command": "start_bot",
+			"triggers": ["открой дискомфорт бота", "мне нужен бот"],
+			"make": "open_file",
+			"parameters": "D:/Work/Python - projekt/Gutsul/shortcuts/StartDSBot.lnk",
+			"say": "Открываю.."
+		},
+		{
+			"command": "start_pycharm",
+			"triggers": ["по и чарм", "пай чарм"],
+			"make": "open_file",
+			"parameters": "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/JetBrains/PyCharm 2023.3.3.lnk",
+			"say": "Открываю.."
+		},
+		{
+			"command": "open_youtube",
+			"triggers": ["відкрий YouTube", "YouTube"],
+			"make": "open_site",
+			"parameters": "https://www.youtube.com/",
+			"say": "Открываю.."
+		},
+		{
+			"command": "gpt_response",
+			"triggers": ["роскажи", "подскажи", "скажи"],
+			"make": "chat_gpt_request",
+			"parameters": "",
+			"say": ""
+		}
+	]
+}

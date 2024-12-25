@@ -1,9 +1,15 @@
 import json
 from stt.listen import Listen
 from stt.wakeword import wakeword
+from tts.gtts import gtts
+from utils.greeting import greeting_based_on_time
+import skills
 # import threading
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+
+def speak(text):
+    gtts(text)
 
 with open('commands.json', 'r', encoding='utf-8') as f:
     commands_data = json.load(f)
@@ -29,7 +35,7 @@ def handle_command(command):
         similarities = cosine_similarity(command_vector, trigger_vectors).flatten()
         max_similarity = similarities.max()
 
-        print(f"Команда: '{command}', Лучшая схожесть для команды '{cmd['command']}': {max_similarity}")
+        # print(f"Команда: '{command}', Лучшая схожесть для команды '{cmd['command']}': {max_similarity}")
 
         if max_similarity > best_similarity:
             best_similarity = max_similarity
@@ -37,13 +43,30 @@ def handle_command(command):
 
     print(f"Лучшая команда: '{best_match['command'] if best_match else 'None'}', Лучшая схожесть: {best_similarity}")
 
+    if best_match and best_similarity >= similarity_threshold:
+        func_to_call = getattr(skills, best_match['make'], None)
+        if func_to_call and callable(func_to_call):
+            func_to_call(best_match, command)
+
+        response = best_match.get('say', "Команда выполнена.")
+        print(f"Отвечаем: {response}")
+
+        speak(response)
+    else:
+        print("Команда не распознана.")
+        speak(response)
+
 def main():
-	while True:
-		wakeWord = wakeword()
-		if wakeWord:
-			text = Listen()
-			recognize(text)
-			print(text)
+    greeting_based_on_time()
+    while True:
+        wakeWord = wakeword()
+        if wakeWord:
+            text = Listen()
+            if text:
+                recognize(text)
+            else:
+                speak("Повторіть ще раз")
+                
 
 if __name__ == "__main__":
 	main()

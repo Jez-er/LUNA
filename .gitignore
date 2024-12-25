@@ -1,5 +1,5 @@
 /.venv
 /vosk-stt-model
 test.py
-/__pycache__
+/**/__pycache__
 commands.json

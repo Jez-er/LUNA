@@ -1,3 +1,4 @@
 /.venv
 /vosk-stt-model
 test.py
+/__pycache__

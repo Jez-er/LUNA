@@ -2,10 +2,10 @@
 	"commands": [
 		{
 			"command": "google_request",
-			"triggers": ["загугли", "найди"],
+			"triggers": ["загугли", "знайди"],
 			"make": "google_request",
 			"parameters": "",
-			"say": "вот что было найдено по запросу.."
+			"say": "ось що я знайшла"
 		},
 		{
 			"command": "start_bot",
@@ -26,7 +26,7 @@
 			"triggers": ["відкрий YouTube", "YouTube"],
 			"make": "open_site",
 			"parameters": "https://www.youtube.com/",
-			"say": "Открываю.."
+			"say": "відкриваю"
 		},
 		{
 			"command": "gpt_response",

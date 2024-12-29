@@ -54,7 +54,7 @@ def handle_command(command):
         speak(response)
     else:
         print("Команда не распознана.")
-        speak(response)
+        speak("Команда не распознана.")
 
 def main():
     greeting_based_on_time()
